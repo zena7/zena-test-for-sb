@@ -1,10 +1,12 @@
-const includeTarget = (value, target = "Id") => value.includes(target);
+import { encoded, translations } from "./data";
 
-export function decoded(data, dictionary) {
+function decoded(data, dictionary) {
   const uniqueIds = {};
   const excludeKeys = "groupId service formatSize ca";
 
   const checkForUnique = (key) => {
+    const includeTarget = (value, target = "Id") => value.includes(target);
+
     if (
       includeTarget(key) &&
       !(key in uniqueIds) &&
@@ -32,4 +34,4 @@ export function decoded(data, dictionary) {
   return Object.values(uniqueIds);
 }
 
-console.log(decoded);
+console.log(decoded(encoded, translations));
