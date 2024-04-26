@@ -2,9 +2,9 @@ import { encoded, translations } from "./data";
 
 function decoded(data, dictionary) {
   const uniqueIds = {};
-  const excludeKeys = "groupId service formatSize ca";
 
   const checkForUnique = (key) => {
+    const excludeKeys = "groupId service formatSize ca";
     const includeTarget = (value, target = "Id") => value.includes(target);
 
     if (
